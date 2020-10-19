@@ -17,7 +17,15 @@ class PeopleStats {
             throw new IllegalStateException(e);
         }
     }
+
     public long count() {
         return people.size();
+    }
+
+    public long countUniqueLastNames() {
+        return people.stream()
+                .map(Person::getLastName)
+                .distinct()
+                .count();
     }
 }
